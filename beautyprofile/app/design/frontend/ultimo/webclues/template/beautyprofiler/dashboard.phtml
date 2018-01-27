@@ -1,0 +1,195 @@
+
+<?php 
+    if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+        $customerData = Mage::getSingleton('customer/session')->getCustomer();
+        $customer_id = $customerData->getId();
+        $connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+        $sql        = "SELECT * FROM `beauty_profiler` WHERE `customer_entity_id` = $customer_id";
+        $sqldef        = "SELECT * FROM `beauty_profiler` WHERE `customer_entity_id` = $customer_id AND is_default = 1";
+        $beautyprofile_data = $connection->fetchAll($sql); 
+        $beautyprofile_default = $connection->fetchAll($sqldef); 
+        //echo "srt";
+        //echo "<pre>";print_r(count($beautyprofile_data));exit();
+       }
+?>
+<?php $base_url = Mage::getBaseUrl().'beautyprofiler'; ?>
+<?php
+if(count($beautyprofile_data) == 0){ ?>
+                    <div class="col-md-6 a-n-brdr" style="width:0px;border-left: 0px">
+                        <a href="<?php echo $base_url; ?>" class="a-n-box">
+                            <div class="add-new-pro-bx">
+                                <i class="brn-icon"></i>
+                                <h3>+ Add New Profile</h3>
+                            </div>
+                            <div class="clear"></div>
+                        </a>
+                    </div>
+<?php } else { ?>
+
+<div class="page-title sml-title">
+    <h1><?php echo $this->__('ACTIVE PROFILE') ?></h1>
+</div>
+<input type="hidden" id="base_url" value="<?php echo Mage::getUrl(); ?>" />
+    <div id="is_default_msg" class="msg_hidden">Your default profile has beed selected.</div>
+<?php 
+$tempvar = 0;
+?>
+<div class="img-beuty-box">
+    <div class="row">
+<?php 
+foreach ($beautyprofile_default as $beautyprofile_details) { 
+            $stylediv='';
+            $stylea='';
+        ?>
+        
+        <?php if($beautyprofile_details['is_default'] != 1 ){
+            $stylediv='style="text-align:left"';
+            $stylea='style="text-align:center"';
+            }   ?>
+        <?php if($beautyprofile_details['is_default'] == 1 ){ ?>
+        
+                    <div class="col-md-6">
+                        <div class="blk-bg-info">
+                            <div class="pd-bg-cl">
+                                <div class="beuty-tp-im">
+                                    <?php if(empty($beautyprofile_details['profile_pic_url'])){ ?>
+                                        <?php echo "<img src='".Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."beautyprofile/profile/"."noimage.jpg"."' width='100' height='100'/>"; ?>
+                                    <?php } else { ?>
+                                        <?php echo "<img src='".Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."beautyprofile/profile/".$beautyprofile_details['profile_pic_url']."' width='100' height='100'/>"; ?>
+                                    <?php } ?>
+
+                                </div>
+                                <h2><?php echo ucwords($beautyprofile_details['full_name']); ?></h2>
+                            </div>
+                        </div>
+                        <div class="edit-view-info">
+                            <h3> <a href="<?php echo Mage::getUrl().'beautyprofiler/index/?id='.$beautyprofile_details['profile_id']; ?>">EDIT</a></h3>
+                            <h4><a href="<?php echo Mage::getBaseUrl().'beautyprofiler/list/delete/?delete='.$beautyprofile_details['profile_id']; ?>" class="a_id">DELETE</a></h4>
+
+                            <?php $file_path = Mage::getBaseDir().'/media/beautyprofile/summary_pdf/'.$beautyprofile_details['profile_id'].'.pdf';
+
+                            if(file_exists($file_path)){
+                                $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/'.$beautyprofile_details['profile_id'].'.pdf';
+                            }
+                            else
+                            {
+                                $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/profile_not_found.pdf';
+                            }
+
+                            ?>
+                            <h1><a href="<?php echo $file_path_1; ?>" target="_blank">VIEW FULL SUMMARY</a></h1>
+                        </div>
+                    </div>
+                    <?php $base_url = Mage::getBaseUrl().'beautyprofiler'; ?>
+                    <?php } ?>
+                    
+                <?php  } ?>
+               <div class="col-md-6 a-n-brdr" <?php echo $stylediv; ?>>
+                        <a href="<?php echo $base_url; ?>" class="a-n-box" <?php echo $stylea; ?>>
+                            <div class="add-new-pro-bx">
+                                <i class="brn-icon"></i>
+                                <h3>+ Add New Profile</h3>
+                            </div>
+                            <div class="clear"></div>
+                        </a>
+                    </div>     
+            </div>
+
+        </div>
+    
+    
+   
+<div class="second-beuty-dec">
+<div class="page-title sml-title">
+    <h1><?php echo $this->__('ALL PROFILES') ?></h1>
+    <!-- <a href="">CLICK TO ACTIVE</a> -->
+</div>
+    <div class="all-data-cont">
+        <ul>
+
+<?php
+
+    foreach ($beautyprofile_data as $beautyprofile_details) { ?>
+
+            <li>
+                <div class="all-main-sd">
+                
+                <div class="main-edt-sd">
+                    <div class="combo-tp-cont">
+    <div class="left-img-sd">
+        <?php if(empty($beautyprofile_details['profile_pic_url'])){ ?>
+            <?php echo "<img src='".Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."beautyprofile/profile/"."noimage.jpg"."' width='100' height='100'/>"; ?>
+        <?php } else { ?>
+            <?php echo "<img src='".Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."beautyprofile/profile/".$beautyprofile_details['profile_pic_url']."' width='100' height='100'/>"; ?>
+        <?php } ?>
+    </div>
+
+    <div class="right-name-sd"><h2><?php echo ucwords($beautyprofile_details['full_name']); ?></h2>
+        <div class="tp-deflt-cls">
+        <input type="radio" name="default" data-id="<?php echo $beautyprofile_details['profile_id']; ?>" value="1" <?php echo ($beautyprofile_details['is_default'] == '1'  ? 'checked' : ''); ?> /> <a class="set-deft">Set as default</a>
+        </div>
+    </div>
+     </div>
+
+                    <div class="edit-del-sd">
+                        <div class="edit-bety">
+          <a href="<?php echo Mage::getUrl().'beautyprofiler/index/?id='.$beautyprofile_details['profile_id']; ?>">EDIT</a>
+                        </div>
+                        <div class="delete-bety">
+    <a href="<?php echo Mage::getBaseUrl().'beautyprofiler/list/delete/?delete='.$beautyprofile_details['profile_id']; ?>" class="a_id">DELETE</a>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </li>
+    <?php }
+?>
+
+        </ul>
+    </div>
+</div>
+
+
+
+<?php }
+    
+?>
+
+
+
+
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('.a_id').click(function() {
+            return confirm("Are You sure that You want to delete this?");
+        });
+    });
+    // For is default
+    jQuery(function(){
+         jQuery('input[name=default]').click(function(){    
+            jQuery('#is_default_msg').removeClass('success-msg');
+            jQuery('#is_default_msg').addClass('msg_hidden');
+            var id = jQuery(this).data('id');
+            var val = jQuery(this).val();
+            var url = jQuery('#base_url').val()+'beautyprofiler/list/selectdefault';
+            console.log(id);
+            console.log(val);
+            jQuery.ajax({
+                url: url,
+                type: "POST",
+                dataType: "text",
+                data:{id:id,val:val},
+                success: function(data){
+                    //console.log(response);
+                   if(data == 'Data updated successfully.'){ // if true (1)
+                   	location.reload();
+                   }
+                   jQuery('#is_default_msg').removeClass('msg_hidden');
+        			jQuery('#is_default_msg').addClass('success-msg');
+                }
+    });
+            
+       });
+    });
+
+</script>

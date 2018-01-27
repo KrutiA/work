@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Webclues_Beautyprofiler>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </Webclues_Beautyprofiler>
+  </modules>
+</config>

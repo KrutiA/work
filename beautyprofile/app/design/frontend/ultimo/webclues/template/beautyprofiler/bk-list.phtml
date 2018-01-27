@@ -1,0 +1,49 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $collection = $this->getCollection();  ?>
+
+    <div class="page-title">
+        <h1><?php echo $this->__('My Profiles') ?></h1>
+    </div>
+<?php echo $this->getToolbarHtml(); ?>
+    <table class="data-table" id="my-custom-table">
+        <thead>
+        <tr>
+            <th><?php echo $this->__('Full Name') ?></th>
+            <th><span class="nobr"><?php echo $this->__('Dob') ?></span></th>
+            <th><?php echo $this->__('Email') ?></th>
+            <th><?php echo $this->__('Picture') ?></th>
+            <th><?php echo $this->__('Edit') ?></th>
+            <th><?php echo $this->__('Delete') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach($collection as $item):
+                if(!empty($item->getProfilePicUrl())){
+                   $imgUrl = Mage::getBaseUrl().'media/beautyprofile/profile/'.$item->getProfilePicUrl();
+                }
+                else
+                {
+                    $imgUrl = Mage::getBaseUrl().'media/beautyprofile/profile/noimage.jpg';
+                }
+        ?>
+            <tr>
+                <td><span class="nobr"><?php echo $item->getFullName(); ?></span></td>
+                <td><?php echo $this->formatDate($item->getDob()); ?></td>
+                <td><?php echo $item->getEmail(); ?></td>
+                <td><img src="<?php echo $imgUrl; ?>" width="100" height="100"></td>
+                <td><a href="<?php echo Mage::getBaseUrl().'beautyprofiler/index/?id='.$item->getProfileId(); ?>">Edit</a></td>
+                <td><a href="<?php echo Mage::getBaseUrl().'beautyprofiler/list/delete/?delete='.$item->getProfileId(); ?>" id="a_id">Delete</a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php echo $this->getToolbarHtml(); ?>
+
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('td a#a_id').click(function() {
+            return confirm("Are You sure that You want to delete this?");
+        });
+    });
+</script>

@@ -1,0 +1,30 @@
+<div class="stepwizard">
+    <h3>Create your beauty profile</h3>
+        <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step col-md-12">
+                <a href="#step-1" type="button" id="side_1" class="btn btn-success btn-circle spaceremovewizard"></a>
+                <p class="st1_c space-add"><small>Step-1: Personal Details</small></p>
+            </div>
+            <div class="stepwizard-step col-md-12 ">
+                <a href="#step-2" type="button" id="side_2" class="btn btn-circle spaceremovewizard st2" disabled="disabled" style="display: none"></a>
+                <p class="st2_c"><small>Step-2: Skin Profile</small></p>
+            </div>
+            <div class="stepwizard-step col-md-12 " >
+                <a href="#step-3" type="button" id="side_3" class="btn btn-circle spaceremovewizard st3" disabled="disabled" style="display: none"></a>
+                <p class="st3_c"><small>Step-3: Hair Profile</small></p>
+            </div>
+            <div class="stepwizard-step col-md-12 " >
+                <a href="#step-4" type="button" id="side_4" class="btn btn-circle spaceremovewizard st4" disabled="disabled" style="display: none"></a>
+              <p class="st4_c"><small>Step-4: Current Skincare Routine</small></p>
+            </div>
+            <div class="stepwizard-step col-md-12 " >
+                <a href="#step-5" type="button" id="side_5" class="btn btn-circle spaceremovewizard st5" disabled="disabled" style="display: none"></a>
+               <p class="st5_c"><small>Step-5: Advise and Suggestions Report</small></p>
+            </div>
+        </div>
+</div>
+<?php if($_GET['id'] != null){
+        $idforprofile = '?id='.$_GET['id'];
+} ?>
+<div style="display:none" id="form_submit_url"><?php echo $this->getUrl('').'beautyprofiler/index/save'.$idforprofile; ?></div>
+

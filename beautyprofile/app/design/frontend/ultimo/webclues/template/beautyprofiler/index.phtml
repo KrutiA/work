@@ -1,0 +1,57 @@
+<!-- <div class="hd-tp-img"><img src="<?php //echo $this->getUrl(''); ?>skin/frontend/ultimo/default/images/beautyprofiler.jpg" alt="" /></div> -->
+<div class="container">
+  <input type="hidden" id="requiredbaseurl" value="<?php echo Mage::getUrl(); ?>" />
+    <div class="as-stepwizard">
+        <?php echo$this->getLayout()->createBlock('beautyprofiler/side')->setTemplate('beautyprofiler/side.phtml')->toHtml(); ?>
+        <div class="right-stepwizard">
+            <div class="in-stpvzrd">
+                <form role="form" class="def-form" action="<?php echo $this->getUrl('').
+                'beautyprofiler/index/saveall'; ?>" method="post" enctype="multipart/form-data"  id="beauty-profiler-form">
+
+                    <?php echo $this->getLayout()
+                                    ->createBlock('beautyprofiler/step1')
+                                    ->setTemplate('beautyprofiler/step1.phtml')
+                                    ->toHtml(); 
+
+                         echo $this->getLayout()
+                                   ->createBlock('beautyprofiler/step2')
+                                   ->setTemplate('beautyprofiler/step2.phtml')
+                                   ->toHtml(); 
+
+                         echo $this->getLayout()
+                                   ->createBlock('beautyprofiler/step3')
+                                   ->setTemplate('beautyprofiler/step3.phtml')
+                                   ->toHtml(); 
+
+                         echo $this->getLayout()
+                                   ->createBlock('beautyprofiler/step4')
+                                   ->setTemplate('beautyprofiler/step4.phtml')
+                                   ->toHtml(); 
+
+                         echo $this->getLayout()
+                                   ->createBlock('beautyprofiler/step5')
+                                   ->setTemplate('beautyprofiler/step5.phtml')
+                                   ->toHtml(); ?>
+
+                </form>
+                <script type="text/javascript">
+                    //< ![CDATA[
+                    var customForm = new VarienForm('beauty-profiler-form', true);
+                    //]]>
+                </script>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id='progress'><div id='progress-complete'></div></div>
+<script type="text/javascript">
+    //< ![CDATA[
+var customForm = new VarienForm('beauty-profiler-form');
+    //]]>
+var base_url = "<?php echo Mage::getBaseUrl(); ?>";
+    
+</script>
+

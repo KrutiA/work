@@ -1,0 +1,196 @@
+ <?php $collection = $this->getCollection()->getFirstItem(); 
+//echo $collection->getFullName();
+ $hair_volume = $collection->getHairVolume();
+ $hair_texture = $collection->getHairTexture();
+ $hair_scalp_type = $collection->getHairScalpType();
+ ?>
+<div class="panel panel-primary setup-content" id="step-3">
+                 <h3 class="panel-title">YOUR HAIR PROFILE</h3>
+    <div class="panel-body">
+    <div class="hair_prent">
+    <h4 class="title_diff">Hair</h4>
+    <ul class="radio_for_list check-btn-pre vertical_cls">
+        <li>
+            <h5 class="title_second_diff">Volume</h5>
+            <label class="error hair_volume"></label>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h1" class="hv" name="hair_volume" value="1" checked>
+                <label for="fr-rd-h1"> Thick </label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h2" class="hv" name="hair_volume" value="2" <?php echo ($collection->getHairVolume() == '2'  ? 'checked' : ''); ?>>
+                <label for="fr-rd-h2"> Thin </label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h3" class="hv" name="hair_volume" value="3" <?php echo ($collection->getHairVolume() == '3'  ? 'checked' : ''); ?>>
+                <label for="fr-rd-h3"> Medium </label>
+            </div>
+        </li>
+        <li>
+            <h5 class="title_second_diff">Texture</h5>
+            <label class="error hair_texture"></label>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h4" class="ht" name="hair_texture" value="1" checked>
+                <label for="fr-rd-h4"> Straight </label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h5" class="ht" name="hair_texture" value="2" <?php echo ($collection->getHairTexture() == '2'  ? 'checked' : ''); ?>>
+                <label for="fr-rd-h5"> Straight with waves </label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h6" class="ht" name="hair_texture" value="3" <?php echo ($collection->getHairTexture() == '3'  ? 'checked' : ''); ?>>
+                <label for="fr-rd-h6"> Frizzy </label>
+            </div>
+            <div class="radio">
+            <input type="radio" id="fr-rd-h8" class="ht" name="hair_texture" value="4" <?php echo ($collection->getHairTexture() == '4'  ? 'checked' : ''); ?>>
+            <label for="fr-rd-h8"> Curly </label>
+    </div>
+            <div class="radio">
+            <input type="radio" id="fr-rd-h9" class="ht" name="hair_texture" value="5" <?php echo ($collection->getHairTexture() == '5'  ? 'checked' : ''); ?>>
+            <label for="fr-rd-h9"> Very curly </label>
+    </div>
+        </li>
+        <li>
+            <h5 class="title_second_diff">Scalp type</h5>
+            <label class="error hair_scalp_type"></label>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h10" class="hst" name="hair_scalp_type" value="1" checked>
+                <label for="fr-rd-h10"> Dry </label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h11" class="hst" name="hair_scalp_type" value="2" <?php echo ($collection->getHairScalpType() == '2'  ? 'checked' : ''); ?>>
+                <label for="fr-rd-h11"> Oily </label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="fr-rd-h12" class="hst" name="hair_scalp_type" value="3" <?php echo ($collection->getHairScalpType() == '3'  ? 'checked' : ''); ?>>
+                <label for="fr-rd-h12"> Normal </label>
+            </div>
+        </li>
+        <li>
+            <h5 class="title_second_diff">Hair expousure to</h5>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hetcf"  id="fr-ch-c1" name="hair_exposure_to_colour_fashion" value="1" <?php echo ($collection->getHairExposureToColourFashion() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c1"> Colour - fashion </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hetcf"  id="fr-ch-c2" name="hair_exposure_to_grey_coverage" value="1" <?php echo ($collection->getHairExposureToGreyCoverage() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c2"> Colour - grey coverage </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hetcf"   id="fr-ch-c3" name="hair_exposure_to_straightened" value="1" <?php echo ($collection->getHairExposureToStraightened() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c3"> Straightened </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hetcf" id="fr-ch-c4" name="hair_exposure_to_none" value="1" <?php echo ($collection->getHairExposureToNone() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c4"> None </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled chk hetcf" id="fr-ch-c5" name="hair_exposure_to_others" value="1" <?php echo ($collection->getHairExposureToOthers() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c5"> Others(specify) </label>
+            </div>
+            <div class="form-group sw" style="display: none;">
+                <label class="control-label">Please specify</label>
+                <input maxlength="100" type="text" name="hair_exposure_to_others_specify" class="form-control spe" value="<?php echo $collection->getHairExposureToOthersSpecify(); ?>">
+            </div>
+            <label class="error hair_exposure_to_colour_fashion"></label>
+        </li>
+        <li>
+            <h5 class="title_second_diff">Hair concern</h5>
+            <label class="error hair_concern"></label>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hc" id="fr-ch-c6" name="hair_concern_hair_fall" value="1" <?php echo ($collection->getHairConcernHairFall() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c6"> Hair fall </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hc" id="fr-ch-c7" name="hair_concern_hair_breakage" value="1" <?php echo ($collection->getHairConcernHairBreakage() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c7"> Hair breakage </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hc" id="fr-ch-c8" name="hair_concern_lacks_volume" value="1" <?php echo ($collection->getHairConcernLacksVolume() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c8"> Lacks volume </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hc" id="fr-ch-c9" name="hair_concern_dry_and_dull" value="1" <?php echo ($collection->getHairConcernDryAndDull() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c9"> Dry & dull </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hc" id="fr-ch-c10" name="hair_concern_frizzy" value="1" <?php echo ($collection->getHairConcernFrizzy() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c10"> Frizzy </label>
+            </div>
+        </li>
+        <li>
+            <h5 class="title_second_diff">Scalp concern</h5>
+            <label class="error hair_scalp"></label>
+            <div class="checkbox ">
+                <input type="checkbox" class="styled hs" id="fr-ch-c11" name="hair_scalp_concern_sensitive" value="1" <?php echo ($collection->getHairScalpConcernSensitive() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c11"> Sensitive(itchy etc) </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hs" id="fr-ch-c12" name="hair_scalp_concern_flaky_scalp" value="1" <?php echo ($collection->getHairScalpConcernFlakyScalp() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c12"> Flacky scalp </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled hs" id="fr-ch-c13" name="hair_scalp_concern_none" value="1" <?php echo ($collection->getHairScalpConcernNone() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c13"> None </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" class="styled chk1 hs" id="fr-ch-c14" name="hair_scalp_concern_others" value="1" <?php echo ($collection->getHairScalpConcernOthers() == '1'  ? 'checked' : ''); ?>>
+                <label for="fr-ch-c14"> Others(specify) </label>
+            </div>
+            <div class="form-group sw1" style="display: none;">
+                <label class="control-label">Please specify</label>
+                <input maxlength="100" type="text" name="hair_scalp_concern_others_specify" class="form-control spe1" value="<?php echo $collection->getHairScalpConcernOthersSpecify(); ?>">
+            </div>
+            <label class="error hair_concern_to_colour"></label>
+        </li>
+
+    </ul>
+    </div>
+        <div class="row">
+        <div class="col-md-12 frm-action">
+            <button class="btn btn-primary backtBtn" id="step3" type="button">Back</button>
+            <button class="btn btn-primary nextBtn" id="step3" type="button">CONTINUE</button>
+        </div>
+        </div>
+
+            
+
+        </div>
+</div>
+
+ <script>
+     $j(document).ready(function () {
+
+         $j(document).on('change', '.chk', function () {
+             if(this.checked) {
+                 $j(".sw").css("display", "block");
+             } else {
+                 $j(".sw").css("display", "none");
+                // $j(".error").css("display", "none");
+             }
+         });
+
+         $j(document).on('change', '.chk1', function () {
+             if(this.checked) {
+                 $j(".sw1").css("display", "block");
+             } else {
+                 $j(".sw1").css("display", "none");
+                // $j(".error").css("display", "none");
+             }
+         });
+
+         if($j(".chk").prop('checked') == true){
+             $j(".sw").css("display", "block");
+         } else {
+             $j(".sw").css("display", "none");
+             //$j(".error").css("display", "none");
+         }
+
+         if($j(".chk1").prop('checked') == true){
+             $j(".sw1").css("display", "block");
+         } else {
+             $j(".sw1").css("display", "none");
+             //$j(".error").css("display", "none");
+         }
+     });
+ </script>

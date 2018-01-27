@@ -1,0 +1,285 @@
+<?php $advice_data = Mage::registry('advice-data'); 
+      $post_data = Mage::getModel("beautyprofiler/beutyprofiler");
+      $data = $post_data->load(Mage::getSingleton('core/session')->getLastinsid());
+      $alldata = $data->getData();
+     
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>barunii</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <style type="text/css">
+        @font-face {
+            font-family:'Avenir 85 Heavy';
+            src: url('fonts/Avenir-Heavy.eot');
+            src: url('fonts/Avenir-Heavy.eot?#iefix') format('embedded-opentype'),
+            url('fonts/Avenir-Heavy.woff2') format('woff2'),
+            url('fonts/Avenir-Heavy.woff') format('woff'),
+            url('fonts/Avenir-Heavy.svg#Avenir-Heavy') format('svg');
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            unicode-range: U+0020-00FE;
+        }
+        @font-face {
+            font-family:'Avenir LT Std 55 Roman';
+            src: url('fonts/AvenirLTStd-Roman.eot');
+            src: url('fonts/AvenirLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+            url('fonts/AvenirLTStd-Roman.woff2') format('woff2'),
+            url('fonts/AvenirLTStd-Roman.woff') format('woff'),
+            url('fonts/AvenirLTStd-Roman.svg#AvenirLTStd-Roman') format('svg');
+            font-weight: 400;
+            font-style: normal;
+            font-stretch: normal;
+            unicode-range: U+0020-00FE;
+        }
+        .inline-cls li{
+            display: inline-block;
+            list-style: none;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 1.5;
+            font-family:'Avenir 85 Heavy';
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff; font-size: 14px; color: #000; margin: 0 auto; width: 100%;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+    <tr><td height="7px" bgcolor="#000" width="100%"></td></tr>
+    <tr><td width="100%" height="30px"></td></tr>
+    <tr>
+        <td width="100%">
+            <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" border="0">
+            <tbody>
+            <?php $imgUrl = Mage::getUrl()."media/beautyprofile/images/logo-br.png";?> 
+            <tr>
+                <td width="50%"><img src="<?php echo $imgUrl; ?>" alt=""></td>
+                <td style="font-family: 'Merriweather', serif;" width="50%" align="right"><strong>Summary</strong></td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+    </tr>
+    <tr><td width="100%" height="30px"></td></tr>
+    <tr>
+        <td width="100%">
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" bgcolor="#eeedee">
+                <tbody>
+                 <tr>
+                     <td width="100%">
+                     <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                         <tbody>
+                         <tr><td height="20px"></td></tr>
+                         <?php 
+                         if(empty($alldata['profile_pic_url'])){
+                            $imgUrl1 = Mage::getUrl()."media/beautyprofile/profile/noimage.jpg";
+                        }else{
+                            $imgUrl1 = Mage::getUrl()."media/beautyprofile/profile/".$alldata['profile_pic_url']; 
+                        }
+                          ?>
+                         <tr>
+                             <td valign="top">
+                                 <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                     <tbody>
+                                     <tr>
+                                         <td width="10%" valign="middle"><a  style="display: inline-block;"><img src="<?php echo $imgUrl1; ?>" alt="" width="41px" height="41px" style="border-radius: 50%;overflow: hidden;"></a></td>
+                                         <td width="85%"><h2 style="font-family: 'Merriweather', serif; font-size: 14px; padding-bottom: 15px; border-bottom: 1px solid #d7d6d6;"><?php echo ucwords($alldata['full_name']);?></h2>
+                                        <?php $skin_type = array('1'=>'OILY','2'=>'VERY OILY','3'=>'DRY','4'=>'VERY DRY','5'=>'NORMAL','6'=>'NORMAL TO DRY','7'=>'NORMAL TO OILY');
+                                        ?>
+                                        <?php if(!empty($skin_type[$alldata['skin_type']])) {?>
+                                         <a style="vertical-align:middle; display:inline-block;font-size: 10px; color: #000; text-decoration: none; line-height: 2;"><b>SKIN TYPE</b> <?php echo $skin_type[$alldata['skin_type']]; ?><span style=" color: #dfdede; display:inline-block; vertical-align: middle; padding: 0px 20px;">  |  </span></a>
+                                         <?php } ?>
+                                         <a  style="font-size: 10px; color: #000; text-decoration: none; line-height: 2;"><b>SENSITIVE SKIN</b> <?php echo ($alldata['sensitive_skin'] == 1) ? 'YES' : 'NO'?><span style=" color: #dfdede; display:inline-block; padding: 0px 20px;">  |  </span></a>
+                                         <?php $complexion = array('1'=>'Very Fair','2'=>'Fair','3'=>'Wheatish/Olive','4'=>'Dusky','5'=>'Very Dusky');?>
+                                         <a  style="font-size: 10px; color: #000; text-decoration: none;line-height: 2;"><b>COMPLEXION</b> <?php echo strtoupper($complexion[$alldata['complexion']]); ?><span style=" color: #dfdede; display:inline-block; padding: 0px 20px;">  |  </span></a>
+                                         <a  style="font-size: 10px; color: #000; text-decoration: none;line-height: 2;"><b>HAIR VOLUME</b> <?php if($alldata['hair_volume'] == 1){ echo 'THICK';}elseif($alldata['hair_volume'] == 2){ echo 'THIN';}elseif($alldata['hair_volume'] == 3){echo 'MEDIUM';}?><span style=" color: #dfdede; display:inline-block; padding: 0px 20px;">  |  </span></a>
+                                         <a  style="font-size: 10px; color: #000; text-decoration: none;line-height: 2;"><b>HAIR TEXTURE</b> <?php if($alldata['hair_texture'] == 1){ echo 'STRAIGHT';}elseif($alldata['hair_texture'] == 2){echo 'STRAIGHT WITH WAVES';}elseif($alldata['hair_texture'] == 3){echo 'FRIZZY';}elseif($alldata['hair_texture'] == 4){echo 'CURLY';}elseif($alldata['hair_texture'] == 5){ echo 'VERY CURLY';} ?><span style=" color: #dfdede; display:inline-block; padding: 0px 20px;">  |  </span></a>
+                                         <a  style="font-size: 10px; color: #000; text-decoration: none;line-height: 2;"><b>HAIR SCALP TYPE</b> <?php if($alldata['hair_scalp_type'] == 1){ echo 'DRY';}elseif($alldata['hair_scalp_type'] == 2){echo 'OILY';}elseif($alldata['hair_scalp_type'] == 3){ echo 'NORMAL';}?></a>
+                                         </td>
+                                     </tr>
+                                     <!--<tr><td height="15px"></td></tr>-->
+                                     </tbody>
+                                 </table>
+                             </td>
+                         </tr>
+                         <!--<ul class="inline-cls" style="padding: 0px;">
+                             <li><a href="#" style="color: #000; text-decoration: none;">SKIN TYPE OILY</a>&nbsp; &nbsp;<span style="color: #d7d6d6;">|</span>&nbsp; &nbsp;</li>
+                             <li><a href="#" style="color: #000; text-decoration: none;">SENSITIVE SKIN YES</a>&nbsp; &nbsp;<span style="color: #d7d6d6;">|</span>&nbsp; &nbsp;</li>
+                             <li><a href="#" style="color: #000; text-decoration: none;">COMPLEXION WHEATISH/OLIVE</a>&nbsp; &nbsp;<span style="color: #d7d6d6;">|</span>&nbsp; &nbsp;</li>
+                             <li><a href="#" style="color: #000; text-decoration: none;">HAIR VOLUME THICK</a>&nbsp; &nbsp;<span style="color: #d7d6d6;">|</span>&nbsp; &nbsp;</li>
+                             <li><a href="#" style="color: #000; text-decoration: none;">HAIR TEXTURE STRAIGHT WITH WAVES</a>&nbsp; &nbsp;<span style="color: #d7d6d6;">|</span>&nbsp; &nbsp;</li>
+                             <li><a href="#" style="color: #000; text-decoration: none;">HAIR SCALP TYPE NORMAL</a></li>
+                         </ul>-->
+                         <tr><td height="20px"></td></tr>
+                         </tbody>
+                     </table>
+                     </td>
+                 </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <?php 
+    if(!empty($advice_data )){
+    foreach($advice_data->getData() as $k => $adv){
+    //|| $adv['face_concern'] == 'face_aging_fine_lines' || $adv['face_concern'] == 'face_aging_deep_lines' || $adv['face_concern'] == 'face_aging_segging_dull_skin'
+        if(!empty($adv['face_concern']) && $adv['face_concern'] == 'dehydrated' || $adv['face_concern'] == 'pigmentation_mild' || $adv['face_concern'] == 'pigmentation_severe' || $adv['face_concern'] == 'uneven_skin_tone' || $adv['face_concern'] == 'uneven_skin_texture'  || $adv['face_concern'] == 'open_pores' || $adv['face_concern'] == 'acne' || $adv['face_concern'] == 'eyes' || $adv['face_concern'] == 'aging_fine_lines' || $adv['face_concern'] == 'aging_deep_lines' || $adv['face_concern'] == 'aging_segging_dull_skin' || $adv['face_concern'] == 'eyes_fine_lines' || $adv['face_concern'] == 'eyes_deep_lines' || $adv['face_concern'] == 'eyes_puffy_and_tired_eyes' || $adv['face_concern'] == 'eyes_hydration' || $adv['face_concern'] == 'eyes_dark_circles' || $adv['face_concern'] == 'hair_fall' || $adv['face_concern'] == 'hair_breakage' || $adv['face_concern'] == 'lacks_volume' || $adv['face_concern'] == 'dry_and_dull_hair' || $adv['face_concern'] == 'frizzy_hair' || $adv['face_concern'] == 'itchy_scalp' ||$adv['face_concern'] == 'sensitive_scalp'){?>
+
+<?php     if($adv['face_concern'] == 'dehydrated'){
+                $attribute_name = 'Dehydration';
+            }
+            elseif ($adv['face_concern'] == 'pigmentation_mild' || $adv['face_concern'] == 'pigmentation_severe') {
+                 $attribute_name = 'Pigmentation';
+             }
+             elseif ($adv['face_concern'] == 'uneven_skin_tone') {
+                 $attribute_name = 'Uneven Skin Tone';
+             }
+             elseif ($adv['face_concern'] == 'uneven_skin_texture') {
+                 $attribute_name = 'Uneven Texture';
+             }
+             elseif ($adv['face_concern'] == 'aging_fine_lines'){
+                 $attribute_name = 'Aging Fine Lines';
+             }
+             elseif ($adv['face_concern'] == 'aging_deep_lines'){
+                 $attribute_name = 'Aging Deep Lines';
+             }
+             elseif ($adv['face_concern'] == 'aging_segging_dull_skin'){
+                 $attribute_name = 'Aging Dull and Sagging Skin';
+             }
+             elseif ($adv['face_concern'] == 'open_pores'){
+                 $attribute_name = 'Open Pores';
+             }
+             elseif ($adv['face_concern'] == 'acne'){
+                 $attribute_name = 'Acne';
+             }
+             elseif ($adv['face_concern'] == 'eyes_fine_lines'){
+                 $attribute_name = 'Eyes Fine Lines';
+             }
+             elseif ($adv['face_concern'] == 'eyes_deep_lines'){
+                 $attribute_name = 'Eyes Deep Lines';
+             }
+             elseif ($adv['face_concern'] == 'eyes_puffy_and_tired_eyes'){
+                 $attribute_name = 'Eyes Puffy and Tired';
+             }
+             elseif ($adv['face_concern'] == 'eyes_dark_circles'){
+                 $attribute_name = 'Eyes Dark Circle';
+             }
+             elseif ($adv['face_concern'] == 'eyes_hydration'){
+                 $attribute_name = 'Eyes Hydration';
+             }
+             elseif ($adv['face_concern'] == 'hair_fall'){
+                 $attribute_name = 'Hair Fall';
+             }
+             elseif ($adv['face_concern'] == 'hair_breakage'){
+                 $attribute_name = 'Hair Breakage';
+             }
+             elseif ($adv['face_concern'] == 'lacks_volume'){
+                 $attribute_name = 'Lacks Volume';
+             }
+             elseif ($adv['face_concern'] == 'dry_and_dull_hair'){
+                 $attribute_name = 'Dry & Dull Hair';
+             }
+             elseif ($adv['face_concern'] == 'frizzy_hair'){
+                 $attribute_name = 'Frizzy Hair';
+             }
+             elseif ($adv['face_concern'] == 'itchy_scalp'){
+                 $attribute_name = 'Itchy Scalp';
+             }
+             elseif ($adv['face_concern'] == 'sensitive_scalp'){
+                 $attribute_name = 'Sensitive Scalp';
+             } ?>
+                <tr><td height="18px"></td></tr>
+                <tr><td><h1 style="margin: 0px; color: #bc912d; font-size: 14px; font-family: 'Merriweather', serif;"><?php echo $attribute_name; ?></h1></td></tr>
+                <tr>
+                    <td width="100%" style="border-bottom: 1px solid #c8c6c6;">
+                        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                           <tbody>
+                           <tr>
+                               <?php if(!empty($adv['skin_causes_and_nature'])){ ?>
+                               <td width="48%">
+                                   <h4 style="font-size: 12px; font-family: 'Merriweather', serif;">Understanding your skin</h4>
+                                   <p style="margin: 0px; font-size: 12px; font-family:'Avenir 85 Heavy';"><?php echo $adv['skin_causes_and_nature']; ?></p>
+                               </td>
+                               <?php } ?>
+                               <td width="4%"></td>
+                               <?php if(!empty($adv['symptoms_and_effects'])){ ?>
+                               <td width="48%">
+                                   <h4 style="font-size: 12px; font-family: 'Merriweather', serif;">Symptoms & Effects</h4>
+                                   <p style="margin: 0px; font-size: 12px; font-family:'Avenir 85 Heavy';"><?php echo $adv['symptoms_and_effects']; ?></p>
+                               </td>
+                               <?php } ?>
+                           </tr>
+                           <tr><td height="20px"></td></tr>
+                           </tbody>
+                       </table>
+                    </td>
+                </tr>
+                <tr><td height="20px"></td></tr>
+                <tr>
+                    <td width="100%" style="border-bottom: 1px solid #c8c6c6;">
+                        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                            <tbody>
+                            <tr><td><h4 style="font-family: 'Merriweather', serif; font-size: 12px;">Lifestyle Changes needed</h4></td></tr>
+                            <?php if(!empty($adv['lifestyle_changes'])){ ?>
+                            <tr><td height="10px"></td></tr>
+                            <tr><td><p style="font-size: 12px; font-family:'Avenir 85 Heavy'; margin: 0px;"><?php echo $adv['lifestyle_changes']; ?></p></td></tr>
+                            <?php } ?>
+                            <tr><td height="20px"></td></tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+    <tr><td height="20px"></td></tr>
+    <tr>
+        <td width="100%">
+            <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                <tbody>
+                <tr><td><h4 style="font-family: 'Merriweather', serif; font-size: 12px; margin: 30px 0px;">Lifestyle Changes needed <sapn style="color: #757170;">(Follow minimum for 2 to 3 months)</sapn></h4></td></tr>
+                <tr><td height="5px"></td></tr>
+                <tr>
+                    <td>
+                        <table cellpadding="10" cellspacing="0" width="100%" style="border: 1px solid #bcb9b9; border-collapse: collapse; display: table;">
+                            <tbody>
+                            <tr>
+                                <th width="30%" style="font-family:'Avenir 85 Heavy'; border: 1px solid #bcb9b9; font-size: 12px; display: table-cell;" align="left">Area of Concern</th>
+                                <th width="70%" style="border: 1px solid #bcb9b9; font-family:'Avenir 85 Heavy'; font-size: 12px; display: table-cell" align="left">Advice</th>
+                            </tr>
+                            <?php  if(!empty($adv['cleanse_and_tone'])) {?>
+                            <tr>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; border: 1px solid #bcb9b9; font-size: 12px; display: table-cell;">Cleanse & Tone</td>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9; display: table-cell;"><?php echo $adv['cleanse_and_tone']; ?></td>
+                            </tr>
+                            <?php } if(!empty($adv['hydrating_serum'])) {?>
+                            <tr>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9;display: table-cell;">Hydrating Serum</td>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9; display: table-cell;"><?php echo $adv['hydrating_serum']; ?></td>
+                            </tr>
+                            <?php } if(!empty($adv['facial_mist'])) {?>
+                            <tr>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9; display: table-cell;">Facial Mist</td>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9; display: table-cell;"><?php echo $adv['facial_mist']; ?></td>
+                            </tr>
+                            <?php } if(!empty($adv['makeup'])) {?>
+                            <tr>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9; display: table-cell;">Make Up</td>
+                                <td style="font-family:'Avenir LT Std 55 Roman'; font-size: 12px; border: 1px solid #bcb9b9; display: table-cell;"><?php echo $adv['makeup']; ?></td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <?php }}} ?>
+    </tbody>
+</table>
+</body>
+</html>
+    

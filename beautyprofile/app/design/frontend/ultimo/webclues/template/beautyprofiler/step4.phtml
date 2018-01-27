@@ -1,0 +1,386 @@
+ <?php $collection = $this->getCollection()->getFirstItem(); 
+//echo $collection->getFullName();
+ ?>
+<div class="panel panel-primary setup-content" id="step-4">
+    <h3 class="panel-title">DESCRIBE YOUR CURRENT SKINCARE ROUTINE</h3>
+            <div class="panel-body">
+                <div class="bdr-div skin_care mrgn-rmv-tp">
+                    <h4 class="title_diff">How do your prepare your face every morning?</h4>
+                    <ul class="radio_for_list check-btn-pre vertical_cls">
+                        <li class="col-md-3">
+                    <h5 class="title_second_diff">Cleanse & Tone</h5>
+                    <label class="errors cleanse_tone"></label>
+                    <div class="checkbox">
+                        <input type="checkbox" class="styled pfc" id="fr-ch-p1" name="prepare_face_cleanse_tone_face_wash" value="1" <?php echo ($collection->getPrepareFaceCleanseToneFaceWash() == '1'  ? 'checked' : ''); ?>>
+                        <label for="fr-ch-p1"> Face Wash </label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="styled pfc" id="fr-ch-p2" name="prepare_face_cleanse_tone_miscellar" value="1" <?php echo ($collection->getPrepareFaceCleanseToneMiscellar() == '1'  ? 'checked' : ''); ?>>
+                        <label for="fr-ch-p2"> Miscellar </label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="styled pfc" id="fr-ch-p3" name="prepare_face_cleanse_tone_cleanser" value="1" <?php echo ($collection->getPrepareFaceCleanseToneCleanser() == '1'  ? 'checked' : ''); ?>>
+                        <label for="fr-ch-p3"> Cleanser </label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="styled pfc" id="fr-ch-p4" name="prepare_face_cleanse_tone_toner" value="1" <?php echo ($collection->getPrepareFaceCleanseToneToner() == '1'  ? 'checked' : ''); ?>>
+                        <label for="fr-ch-p4"> Toner </label>
+                    </div>
+                        </li>
+                        <li class="col-md-3">
+                            <h5 class="title_second_diff">Protect</h5>
+                            <label class="errors hydrate_protect"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fchtp" id="fr-ch-p5" name="prepare_face_hydrate_protect_face_serum" value="1" <?php echo ($collection->getPrepareFaceHydrateProtectFaceSerum() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p5"> Face Serum </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fchtp" id="fr-ch-p6" name="prepare_face_hydrate_protect_face_cream" value="1" <?php echo ($collection->getPrepareFaceHydrateProtectFaceCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p6"> Face Cream </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fchtp" id="fr-ch-p7" name="prepare_face_hydrate_protect_eye_cream" value="1" <?php echo ($collection->getPrepareFaceHydrateProtectEyeCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p7"> Eye Cream </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fchtp" id="fr-ch-p8" name="prepare_face_hydrate_protect_eye_serum" value="1" <?php echo ($collection->getPrepareFaceHydrateProtectEyeSerum() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p8"> Eye Serum </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fchtp" id="fr-ch-p9" name="prepare_face_hydrate_protect_sunscreen" value="1" <?php echo ($collection->getPrepareFaceHydrateProtectSunscreen() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p9"> Sunscreen </label>
+                            </div>
+                        </li>
+                        <li class="col-md-3">
+                            <h5 class="title_second_diff">Hydrate</h5>
+                            <label class="errors face_grooming"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcgb" id="fr-ch-p10" name="prepare_face_grooming_bb_cream" value="1" <?php echo ($collection->getPrepareFaceGroomingBbCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p10"> BB Cream </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcgb" id="fr-ch-p11" name="prepare_face_grooming_sunscreen" value="1" <?php echo ($collection->getPrepareFaceGroomingSunscreen() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p11"> Sunscreen </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcgb" id="fr-ch-p12" name="prepare_face_grooming_liogloss" value="1" <?php echo ($collection->getPrepareFaceGroomingLiogloss() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p12"> Lipgloss </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcgb" id="fr-ch-p13" name="prepare_face_grooming_foundation" value="1" <?php echo ($collection->getPrepareFaceGroomingFoundation() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p13"> Foundation </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcgb" id="fr-ch-p14" name="prepare_face_grooming_compact" value="1" <?php echo ($collection->getPrepareFaceGroomingCompact() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p14"> Compact </label>
+                            </div>
+                        </li>
+                        <li class="col-md-3">
+                            <h5 class="title_second_diff">Grooming</h5>
+                            <label class="errors face_grooming_finishing"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled pfgf" id="fr-ch-p15" name="prepare_face_grooming_finishing_powder" value="1" <?php echo ($collection->getPrepareFaceGroomingFinishingPowder() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p15">Finishing Powder </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled pfgf" id="fr-ch-p16" name="prepare_face_grooming_eye_pencil" value="1" <?php echo ($collection->getPrepareFaceGroomingEyePencil() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p16"> Eye Pencil </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled pfgf" id="fr-ch-p17" name="prepare_face_grooming_eye_shadow" value="1" <?php echo ($collection->getPrepareFaceGroomingEyeShadow() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p17"> Eye Shadow </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled pfgf" id="fr-ch-p18" name="prepare_face_grooming_lipstick" value="1" <?php echo ($collection->getPrepareFaceGroomingLipstick() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p18"> Lipstick </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled pfgf" id="fr-ch-p19" name="prepare_face_grooming_perfume" value="1" <?php echo ($collection->getPrepareFaceGroomingPerfume() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-p19"> Perfume </label>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                    </div>
+                <div class="clearfix"></div>
+                <div class="bdr-div mrgn-rmv-tp">
+                    <h4 class="title_diff">Share with us your daily beauty routine before you go to sleep at night?</h4>
+                    <ul class="radio_for_list check-btn-pre vertical_cls">
+                        <li class="col-md-3">
+                            <h5 class="title_second_diff">Cleanse & Tone</h5>
+                            <label class="errors routine_cleanse_tone"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brc" id="fr-ch-t1" name="beauty_routine_cleanse_tone_face_wash" value="1" <?php echo ($collection->getBeautyRoutineCleanseToneFaceWash() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t1"> Face Wash </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brc" id="fr-ch-t2" name="beauty_routine_cleanse_tone_miscellar" value="1" <?php echo ($collection->getBeautyRoutineCleanseToneMiscellar() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t2"> Miscellar </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brc" id="fr-ch-t3" name="beauty_routine_cleanse_tone_cleanser" value="1" <?php echo ($collection->getBeautyRoutineCleanseToneCleanser() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t3"> Cleanser </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brc" id="fr-ch-t4" name="beauty_routine_cleanse_tone_toner" value="1" <?php echo ($collection->getBeautyRoutineCleanseToneToner() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t4"> Toner </label>
+                            </div>
+                        </li>
+                        <li class="col-md-3">
+                            <h5 class="title_second_diff">Repair & Rejusvenate</h5>
+                            <label class="errors beauty_routine_repair"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brr" id="fr-ch-t5" name="beauty_routine_repair_rejusvenate_face_serum" value="1" <?php echo ($collection->getBeautyRoutineRepairRejusvenateFaceSerum() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t5"> Face Serum </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brr" id="fr-ch-t6" name="beauty_routine_repair_rejusvenate_face_cream" value="1" <?php echo ($collection->getBeautyRoutineRepairRejusvenateFaceCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t6"> Face Cream </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brr" id="fr-ch-t7" name="beauty_routine_repair_rejusvenate_eye_cream" value="1" <?php echo ($collection->getBeautyRoutineRepairRejusvenateEyeCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t7"> Eye Cream </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled brr" id="fr-ch-t8" name="beauty_routine_repair_rejusvenate_eye_serum" value="1" <?php echo ($collection->getBeautyRoutineRepairRejusvenateEyeSerum() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t8"> Eye Serum </label>
+                            </div>
+                        </li>
+                        <li class="col-md-3">
+                            <h5 class="title_second_diff">Grooming</h5>
+                            <label class="errors foot_cream"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled gfc" id="fr-ch-t9" name="beauty_routine_grooming_foot_cream" value="1" <?php echo ($collection->getBeautyRoutineGroomingFootCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t9"> Foot Cream</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled gfc" id="fr-ch-t10" name="beauty_routine_grooming_hand_cream" value="1" <?php echo ($collection->getBeautyRoutineGroomingHandCream() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-t10"> Hand Cream </label>
+                            </div>
+                        </li>
+                        </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="bdr-div input_box_pre">
+                    <h4 class="title_diff">What are the brands you are currently using in your beauty routine?</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Face Wash</label>
+                                <label class="errors brand_face_wash"></label>
+                                <input maxlength="100" type="text" name="brand_face_wash"  class="form-control fw" value="<?php $brandfacewash = $collection->getBrandFaceWash();
+                                 echo (($brandfacewash == '0') ? '' : $brandfacewash); ?>">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Eye Cream</label>
+                                <label class="errors brand_eye_cream"></label>
+                                <input maxlength="100" type="text" name="brand_eye_cream"  class="form-control bec" value="<?php
+                                $brandeye = $collection->getBrandEyeCream();
+                                 echo (($brandeye == '0') ? '' : $brandeye); ?>">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Finishing Powder</label>
+                                <label class="errors barnd_finishing_powder"></label>
+                                <input maxlength="100" type="text" name="barnd_finishing_powder" class="form-control bfp" value="<?php 
+                                    $brandfinishpowder = $collection->getBarndFinishingPowder();
+                                 echo (($brandfinishpowder == '0') ? '' : $brandfinishpowder); ?>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Miscellar</label>
+                                <label class="errors brand_miscellar"></label>
+                                <input maxlength="100" type="text" name="brand_miscellar" value="<?php $brandmiscellar = $collection->getBrandMiscellar();
+                                 echo (($brandmiscellar == '0') ? '' : $brandmiscellar); ?>" class="form-control bm">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Eye Serum</label>
+                                <label class="errors brand_eye_serum"></label>
+                                <input maxlength="100" type="text" name="brand_eye_serum" value="<?php $brandeyesyrum = $collection->getBrandEyeSerum();
+                                 echo (($brandeyesyrum == '0') ? '' : $brandeyesyrum);
+                                ?>" class="form-control bes">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Eye Pencil</label>
+                                <label class="errors brand_eye_pencil"></label>
+                                <input maxlength="100" type="text" name="brand_eye_pencil" value="<?php $brandeyepencil = $collection->getBrandEyePencil();
+                                 echo (($brandeyepencil == '0') ? '' : $brandeyepencil); ?>" class="form-control bep">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Cleanser</label>
+                                <label class="errors brand_cleanser"></label>
+                                <input maxlength="100" type="text" name="brand_cleanser" value="<?php $brandcleanser = $collection->getBrandCleanser();
+                                 echo (($brandcleanser == '0') ? '' : $brandcleanser); ?>" class="form-control etg">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Sunscreen</label>
+                                <label class="errors brand_sunscreen"></label>
+                                <input maxlength="100" type="text" name="brand_sunscreen" value="<?php $brandsunscreen = $collection->getBrandSunscreen();
+                                    echo (($brandsunscreen == '0') ? '' : $brandsunscreen); ?>" class="form-control bast">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Eye Shadow</label>
+                                <label class="errors brand_eye_shadow"></label>
+                                <input maxlength="100" type="text" name="brand_eye_shadow" value="<?php $brandeyeshadow = $collection->getBrandEyeShadow();
+                                    echo (($brandeyeshadow == '0') ? '' : $brandeyeshadow); ?>" class="form-control best">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Toner</label>
+                                <label class="errors brand_toner"></label>
+                                <input maxlength="100" type="text" name="brand_toner" value="<?php $brandtoner = $collection->getBrandToner();
+                                    echo (($brandtoner == '0') ? '' : $brandtoner); ?>" class="form-control bt">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">BB Cream</label>
+                                <label class="errors brand_bb_cream"></label>
+                                <input maxlength="100" type="text" name="brand_bb_cream" value="<?php $brandbbcream = $collection->getBrandBbCream();
+                                    echo (($brandbbcream == '0') ? '' : $brandbbcream); ?>" class="form-control bbc">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Lipstick</label>
+                                <label class="errors brand_lipstick"></label>
+                                <input maxlength="100" type="text" name="brand_lipstick" value="<?php $brandlipstick = $collection->getBrandLipstick();
+                                    echo (($brandlipstick == '0') ? '' : $brandlipstick); ?>" class="form-control bl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Face Serum</label>
+                            <label class="errors brand_face_serum"></label>
+                            <input maxlength="100" type="text" name="brand_face_serum" value="<?php $brandserum = $collection->getBrandFaceSerum();
+                                echo (($brandserum == '0') ? '' : $brandserum); ?>" class="form-control bfs">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Foundation</label>
+                            <label class="errors barnd_foundation"></label>
+                            <input maxlength="100" type="text" name="barnd_foundation" value="<?php $brandfoundation = $collection->getBarndFoundation();
+                                echo (($brandfoundation == '0') ? '' : $brandfoundation); ?>" class="form-control bf">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Lipgloss</label>
+                            <label class="errors brand_lipgloss"></label>
+                            <input maxlength="100" type="text" name="brand_lipgloss" value="<?php $brandlipgloss = $collection->getBrandLipgloss();
+                                echo (($brandlipgloss == '0') ? '' : $brandlipgloss); ?>" class="form-control bld">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Face Cream</label>
+                                <label class="errors brand_face_cream"></label>
+                                <input maxlength="100" type="text" name="brand_face_cream" value="<?php $brandfacecream = $collection->getBrandFaceCream();
+                                echo (($brandfacecream == '0') ? '' : $brandfacecream); ?>" class="form-control bfc">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Compact</label>
+                                <label class="errors brand_compact"></label>
+                                <input maxlength="100" type="text" name="brand_compact" value="<?php $brandfacecompaq = $collection->getBrandCompact();
+                                echo (($brandfacecompaq == '0') ? '' : $brandfacecompaq); ?>" class="form-control bc">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Perfume</label>
+                                <label class="errors brand_perfume"></label>
+                                <input maxlength="100" type="text" name="brand_perfume" value="<?php $brandperfume = $collection->getBrandPerfume();
+                                echo (($brandperfume == '0') ? '' : $brandperfume); ?>" class="form-control bp">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="check_pre_title">
+                    <h4 class="title_diff">Your skin goals</h4>
+                    <label class="errors skin_goal"></label>
+                    <ul class="radio_for_list check-btn-pre vertical_cls">
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled sg" id="fr-ch-r1" name="skin_goals_radiant_and_smooth_skin" value="1" <?php echo ($collection->getSkinGoalsRadiantAndSmoothSkin() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-r1"> Radiant & Smooth Skin </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled sg" id="fr-ch-r2" name="skin_goals_well_hydrate_and_supple" value="1" <?php echo ($collection->getSkinGoalsWellHydrateAndSupple() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-r2"> Well Hydrate and Supple </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled sg" id="fr-ch-r3" name="skin_goals_maintain_and_improve_my_current_skin" value="1" <?php echo ($collection->getSkinGoalsMaintainAndImproveMyCurrentSkin() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-r3"> Maintain & improve my current skin </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled sg" id="fr-ch-r4" name="skin_goals_clear_and_bright_skin" value="1" <?php echo ($collection->getSkinGoalsClearAndBrightSkin() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-r4"> Clear & Bright Skin </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled sg" id="fr-ch-r5" name="skin_goals_well_groomed_look" value="1" <?php echo ($collection->getSkinGoalsWellGroomedLook() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-r5"> Well Groomed Look </label>
+                            </div>
+                        </li>
+
+                        </ul>
+                    </div>
+
+
+
+                <div class="row">
+                <div class="col-md-12 frm-action">
+                    <button class="btn btn-primary backtBtn" type="button">Back</button>
+                    <button class="btn btn-primary nextBtn" id="step4" type="button">CONTINUE</button> 
+                </div>
+                </div>
+
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+
+    //$j('#step4').click(function(){
+        var profile_id = "<?php echo base64_encode($this->getRequest()->getParam('id'))  ?>";
+        var baseUrl = '<?php echo Mage::getUrl() ?>';
+        //$j.ajax({url: baseUrl + "beautyprofiler/index/summarypdf/?id="+profile_id, success: function(result){
+                //$j('#dehydrated').html(result.dehydrated);
+             //}
+        //});
+    //});
+</script>

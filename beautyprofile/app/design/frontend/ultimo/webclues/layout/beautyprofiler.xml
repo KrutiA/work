@@ -1,0 +1,39 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+  <beautyprofiler_index_index>   
+	<reference name="head">
+		<!-- <action method="addItem"><type>skin_js</type><name>js/jquery-ui.min.js</name></action>  -->
+	<!-- 	<action method="addItem"><type>skin_js</type><name>js/jquery-compat-git.js</name></action>  -->
+		<action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name></action>  
+		<action method="addItem"><type>skin_js</type><name>js/webclues_custom.js</name></action>
+		<action method="addItem"><type>skin_js</type><name>js/bootstrap-select.js</name></action>
+		<action method="addItem"><type>skin_css</type><name>css/bootstrap.min.css</name></action>
+		<action method="addItem"><type>skin_css</type><name>css/webclues_style.css</name></action>
+		<action method="addItem"><type>skin_css</type><name>css/bootstrap-select.css</name></action>
+		<action method="addJs"><script>infortis/jquery/custom_validate.js</script></action>
+		<action method="addItem"><type>skin_js</type><name>js/jquery.date-dropdowns.js</name></action>
+	</reference>
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>  
+    <reference name="content">   
+      <block type="beautyprofiler/index" name="beautyprofiler_index" template="beautyprofiler/index.phtml"/>
+    </reference>   
+  </beautyprofiler_index_index>
+  <beautyprofiler_list_index>   
+  	<reference name="content">   
+      <block type="beautyprofiler/list" name="beautyprofiler_list" template="beautyprofiler/list.phtml"/>
+    </reference>   
+  	</beautyprofiler_list_index>
+
+    <beautyprofiler_list_dashboard>
+        <reference name="breadcrumbs">
+            <action method="addCrumb"><crumbName>Beauty Profiler</crumbName><crumbInfo><label>Beauty Profiler</label><title>Beauty Profiler</title></crumbInfo></action>
+        </reference>
+
+        <update handle="customer_account"/> <!-- include existing customer account layout -->
+        <reference name="content">
+            <block type="core/template" name="beautyprofiler_dashboard" template="beautyprofiler/dashboard.phtml" />
+        </reference>
+    </beautyprofiler_list_dashboard>
+</layout>

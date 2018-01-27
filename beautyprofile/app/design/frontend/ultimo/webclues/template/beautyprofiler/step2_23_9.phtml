@@ -1,0 +1,537 @@
+ <?php $collection = $this->getCollection()->getFirstItem();
+//echo $collection->getFullName();
+//echo '<pre>';print_r($collection->getData('skin_type'));exit;
+ ?>
+ <div class="panel panel-primary setup-content" id="step-2">
+     <h3 class="panel-title">Your Skin Profile</h3>
+            <div class="panel-body body-content">
+                <div class="bdr-div radio_btn_parent mrgn-50-par">
+                    <h4 class="title_diff">What skin type are you?</h4>
+                    <ul class="radio_for_list">
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" class="input-radio  validate-one-required-by-name" id="fr-rd-1" name="skin_type" value="1" checked>
+                                <label for="fr-rd-1"> Oily </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-2" class="input-radio  validate-one-required-by-name" name="skin_type" value="2" <?php echo ($collection->getSkinType() == '2'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-2"> Very Oil </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-3" class="input-radio  validate-one-required-by-name" name="skin_type" value="3" <?php echo ($collection->getSkinType() == '3'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-3"> Dry </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-4" class="input-radio  validate-one-required-by-name" name="skin_type" value="4" <?php echo ($collection->getSkinType() == '4'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-4"> Very Dry </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-5" class="input-radio  validate-one-required-by-name" name="skin_type"  value="5" <?php echo ($collection->getSkinType() == '5'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-5"> Normal </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-6" class="input-radio  validate-one-required-by-name " name="skin_type" value="6" <?php echo ($collection->getSkinType() == '6'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-6"> Normal to dry </label>
+                            </div></li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-7" class="input-radio  validate-one-required-by-name" name="skin_type" value="7" <?php echo ($collection->getSkinType() == '7'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-7"> Normal to oily </label>
+                            </div></li>
+                       <label class="error skin_type"></label>
+                    </ul>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="bdr-div checkbox_div_prent mrgn-50-par">
+                    <h4 class="title_diff">Do you have sensitive skin?</h4>
+                    <ul class="radio_for_list">
+                        <li class="max_width_parent">
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-8"  name="sensitive_skin" class="ss" value="1" checked>
+                                <label for="fr-rd-8"> Yes </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-9" name="sensitive_skin" class="ss" value="0" <?php echo ($collection->getSensitiveSkin() == '0'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-9"> No </label>
+                            </div>
+                        </li>
+                        <label class="error sensitive_skin"></label>
+                        <li class="sensitive_skin_depend"><i class="fa fa-chevron-right"></i></li>
+                        <li class="max_width_parent responsive_width sensitive_skin_depend">
+                         <h5 class="title_second_diff ">How did you know you have sensitive skin?</h5>
+                            <label class="error sensitive_skin_reason"></label>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-10" class="sr" name="sensitive_skin_reason" value="1" checked>
+                                <label for="fr-rd-10"> My doctor has confirmed it </label>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-11" class="sr" name="sensitive_skin_reason" value="2" <?php echo ($collection->getSensitiveSkinReason() == '2'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-11"> It is my own assessment of my skin as i have more than once experianced breakout, rashes, redness on my skin when i use any beauty product on me </label>
+                            </div>
+                        </li>
+                        <li><i class="fa fa-chevron-right sensitive_skin_depend"></i></li>
+                        <li class="max_width_parent responsive_width sensitive_skin_depend">
+                            <h5 class="title_second_diff">Rate your skin's sensititvity</h5>
+                            <label class="error sensitive_skin_rate"></label>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-12" class="ssr" name="sensitive_skin_rate" value="1" checked>
+                                <label for="fr-rd-12">Severe </label>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-13" class="ssr" name="sensitive_skin_rate" value="2" <?php echo ($collection->getSensitiveSkinRate() == '2'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-13"> Mild to severe </label>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="fr-rd-14" class="ssr" name="sensitive_skin_rate" value="3" <?php echo ($collection->getSensitiveSkinRate() == '3'  ? 'checked' : ''); ?>>
+                                <label for="fr-rd-14"> Mild </label>
+                            </div>
+                        </li>
+                     </ul>
+
+                </div>
+
+                <div class="bdr-div face_div_prent  clearfix">
+                    <h4 class="title_diff">Face</h4>
+                    <div class="row">
+                    <div class="col-md-7 border_right mrgin_none_right">
+                         <div class="row">
+                            <div class="col-md-4">
+                            <ul class="check-btn-pre radio_for_list">
+                            <li>
+                        <h5 class="title_second_diff orange_color">Dehydrate</h5>
+                                <label class="error dehydrate"></label>
+                        <div class="checkbox">
+                            <input type="checkbox" class="styled dec" id="fr-ch-1" name="face_dehydrated_overall" value="1"  <?php echo ($collection->getFaceDehydratedOverall() == '1'  ? 'checked' : ''); ?>>
+                            <label for="fr-ch-1"> Overall </label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" class="styled deh" id="fr-ch-2" name="face_dehydrated_around_mouth" value="1" <?php echo ($collection->getFaceDehydratedAroundMouth() == '1'  ? 'checked' : ''); ?>>
+                            <label for="fr-ch-2"> Mouth </label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" class="styled deh" id="fr-ch-3" name="face_dehydrated_around_cheeks" value="1" <?php echo ($collection->getFaceDehydratedAroundCheeks() == '1'  ? 'checked' : ''); ?>>
+                            <label for="fr-ch-3"> Cheeks </label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" class="styled deh" id="fr-ch-4" name="face_dehydrated_around_forehead" value="1" <?php echo ($collection->getFaceDehydratedAroundForehead() == '1'  ? 'checked' : ''); ?>>
+                            <label for="fr-ch-4"> Forehead </label>
+                        </div>
+                            </li>
+                            </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="check-btn-pre radio_for_list">
+                                <li>
+                                <h5 class="title_second_diff">Uneven skin tone</h5>
+                                <label class="error uneven_skin_tone"></label>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ukg" id="fr-ch-5" name="face_uneven_skin_tone_overall" value="1" <?php echo ($collection->getFaceUnevenSkinToneOverall() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-5"> Overall </label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ukt" id="fr-ch-6" name="face_uneven_skin_tone_around_mouth" value="1" <?php echo ($collection->getFaceUnevenSkinToneAroundMouth() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-6"> Mouth </label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ukt" id="fr-ch-7" name="face_uneven_skin_tone_around_cheeks" value="1" <?php echo ($collection->getFaceUnevenSkinToneAroundCheeks() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-7"> Cheeks </label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ukt" id="fr-ch-8" name="face_uneven_skin_tone_around_forehead" value="1" <?php echo ($collection->getFaceUnevenSkinToneAroundForehead() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-8"> Forehead </label>
+                                </div>
+                                </li>
+                                </ul>
+                                </div>
+                           <div class="col-md-4">
+                              <ul class="check-btn-pre radio_for_list">
+                                <li>
+                                <h5 class="title_second_diff">Uneven skin texture</h5>
+                                <label class="error uneven_skin_texture"></label>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled usb" id="fr-ch-9" name="face_uneven_skin_texture_overall" value="1" <?php echo ($collection->getFaceUnevenSkinTextureOverall() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-9"> Overall </label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ust" id="fr-ch-10" name="face_uneven_skin_texture_around_mouth" value="1" <?php echo ($collection->getFaceUnevenSkinTextureAroundMouth() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-10"> Mouth </label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ust" id="fr-ch-11" name="face_uneven_skin_texture_around_cheeks" value="1" <?php echo ($collection->getFaceUnevenSkinTextureAroundCheeks() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-11"> Cheeks </label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" class="styled ust" id="fr-ch-12" name="face_uneven_skin_texture_around_forehead" value="1" <?php echo ($collection->getFaceUnevenSkinTextureAroundForehead() == '1'  ? 'checked' : ''); ?>>
+                                    <label for="fr-ch-12"> Forehead </label>
+                                </div>
+                            </li>
+                        </ul>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 def-hr-par"><hr></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            <ul class="radio_for_list">
+                                <h5 class="title_second_diff orange_color">Pigmentation</h5>
+                                <label class="error face_pigmentation"></label>
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" class="fpt" id="fr-rd-15"  name="face_pigmentation_type" value="1" <?php echo ($collection->getFacePigmentationType() == '1'  ? 'checked' : ''); ?>>
+                                        <label for="fr-rd-15"> Significant </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" class="fpt"id="fr-rd-16"  name="face_pigmentation_type" value="2" <?php echo ($collection->getFacePigmentationType() == '2'  ? 'checked' : ''); ?>>
+                                        <label for="fr-rd-16"> Mild </label>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        <ul class="check-btn-pre radio_for_list">
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcb" id="fr-ch-13" name="face_pigmentation_overall" value="1" <?php echo ($collection->getFacePigmentationOverall() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-13">Overall</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcv" id="fr-ch-14" name="face_pigmentation_around_mouth" value="1" <?php echo ($collection->getFacePigmentationAroundMouth() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-14">Mouth</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcv" id="fr-ch-15" name="face_pigmentation_cheeks" value="1" <?php echo ($collection->getFacePigmentationCheeks() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-15">Cheeks</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fcv" id="fr-ch-16" name="face_pigmentation_forehead" value="1" <?php echo ($collection->getFacePigmentationForehead() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-16">Forehead</label>
+                            </div>
+                            </ul>
+                            </div>
+                            <div class="col-md-4">
+
+                        <ul class="check-btn-pre">
+                            <h5 class="title_second_diff">Aging</h5>
+                            <label class="error face_aging"></label>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fag" id="fr-ch-17" name="face_aging_fine_lines" value="1" <?php echo ($collection->getFaceAgingFineLines() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-17"> Fine lines </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fag" id="fr-ch-18" name="face_aging_deep_lines" value="1" <?php echo ($collection->getFaceAgingDeepLines() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-18"> Deep lines </label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled fag" id="fr-ch-19" name="face_aging_segging_dull_skin" value="1" <?php echo ($collection->getFaceAgingSeggingDullSkin() == '1'  ? 'checked' : ''); ?>>
+                                <label for="fr-ch-19"> Sagging & dull skin </label>
+                            </div>
+                        </ul>
+                        </div>
+                            <div class="col-md-4">
+                                <ul class="radio_for_list">
+                                    <h5 class="title_second_diff">Open pores?</h5>
+                                    <label class="error face_open_pores"></label>
+                                    <li>
+                                        <div class="radio radio-inline">
+                                            <input type="radio" id="fr-rd-17" class="fop" name="face_open_pores" value="1" checked>
+                                            <label for="fr-rd-17"> Yes </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-inline">
+                                            <input type="radio" id="fr-rd-18" class="fop" name="face_open_pores" value="0" <?php echo ($collection->getFaceOpenPores() == '0'  ? 'checked' : ''); ?>>
+                                            <label for="fr-rd-18"> No </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="radio_for_list">
+                            <li> <h5 class="title_second_diff">Acne prone?</h5></li>
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-19" class="fap" name="face_acne_prone" value="1" checked>
+                                    <label for="fr-rd-19"> Yes </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-20" class="fap" name="face_acne_prone" value="0" <?php echo ($collection->getFaceAcneProne() == '0'  ? 'checked' : ''); ?>>
+                                    <label for="fr-rd-20"> No </label>
+                                </div>
+                            </li>
+                            <li>
+                                <label class="error face_acne_prone"></label>
+                            </li>
+                        </ul>
+                        <ul class="radio_for_list max_width_pre2 face_acne_prone_type_depend">
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-21" class="fapt" name="face_acne_prone_type" value="1" checked>
+                                    <label for="fr-rd-21"> Severe </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-22" class="fapt" name="face_acne_prone_type" value="2" <?php echo ($collection->getFaceAcneProneType() == '2'  ? 'checked' : ''); ?>>
+                                    <label for="fr-rd-22"> Mild </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-23" class="fapt" name="face_acne_prone_type" value="3" <?php echo ($collection->getFaceAcneProneType() == '3'  ? 'checked' : ''); ?>>
+                                    <label for="fr-rd-23"> Had acne in past. Currently not experiancing any. </label>
+                                </div>
+                            </li>
+                            <label class="error face_acne_prone_type"></label>
+                        </ul>
+                        <div class="row">
+                            <div class="col-md-12 def-hr-par"><hr></div>
+                        </div>
+
+                        <ul class="radio_for_list face_acne_prone_type_depend">
+                            <h5 class="title_second_diff">Are you trating acne under supervision of a doctor?</h5>
+                            <label class="error face_acne_treatment"></label>
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-24"  name="face_acne_treatment" class="fatd" value="1" checked>
+                                    <label for="fr-rd-24"> Yes </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="fr-rd-25"  name="face_acne_treatment" class="fatd" value="0" <?php echo ($collection->getFaceAcneTreatment() == '0'  ? 'checked' : ''); ?>>
+                                    <label for="fr-rd-25"> No </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+
+                    </div>
+                <div class="bdr-div eyes_for_pre">
+                    <h4 class="title_diff">Eyes</h4>
+                    <label class="error eye"></label>
+                    <ul class="check-btn-pre radio_for_list max_width_check">
+                            <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled efl" id="fr-ch-pre1" name="eyes_fine_lines" value="1" <?php echo ($collection->getEyesFineLines() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre1"> Fine lines </label>
+                                <p>fine lines are visible when you smile.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled efl" id="fr-ch-pre2" name="eyes_deep_lines" value="1" <?php echo ($collection->getEyesDeepLines() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre2"> Deep lines </label>
+                                <p>wrinkles are noticeable around the eyes.</p>
+                            </div>
+                        <li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled efl" id="fr-ch-pre3" name="eyes_hydration" value="1" <?php echo ($collection->getEyesHydration() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre3"> Hydration </label>
+                                <p>keep the skin around the eye moist and hydrated.</p>
+                            </div>
+                        <li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled efl" id="fr-ch-pre4" name="eyes_puffy_and_tired_eyes" value="1" <?php echo ($collection->getEyesPuffyAndTiredEyes() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre4"> Puffy and tired eyes </label>
+                                <p>Fine lines are visible when you smile.</p>
+                            </div>
+                        <li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled efl" id="fr-ch-pre5" name="eyes_dark_circles" value="1" <?php echo ($collection->getEyesDarkCircles() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre5"> Dark Circle </label>
+                                <p>Fine lines are visible when you smile.</p>
+                            </div>
+                        <li>
+                </div>
+                <div class="bdr-div eyes_for_pre">
+                    <h4 class="title_diff">Hands & feet</h4>
+                    <label class="error hands_and_feet_dry"></label>
+                    <ul class="check-btn-pre radio_for_list max_width_pre3">
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled hfd" id="fr-ch-pre6" name="hands_and_feet_dry"  value="1"  <?php echo ($collection->getHandsAndFeetDry() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre6">Dry </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                <input type="checkbox" class="styled hfd" id="fr-ch-pre7" name="hands_and_feet_regular" value="1" <?php echo ($collection->getHandsAndFeetRegular() == '1'  ? 'checked' : ''); ?>>
+                                <label class="font_change" for="fr-ch-pre7"> Regular </label>
+                            </div>
+                        </li>
+                    </div>
+                <div class="completion">
+                    <h4 class="title_diff">Complexion</h4>
+                    <label class="error complex"></label>
+                <div class="row">
+
+                    <div class="col-md-2 col-md-2-5">
+                        <div class="cmplctn">
+                            <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/Asset-2.png'?>">
+                            <ul class="radio_for_list">
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="fr-rd-new1" class="co" name="complexion" value="1" checked>
+                                        <label for="fr-rd-new1"> Very fair </label>
+                                        <p>Known reference : Kareena kapoor</p>
+                                    </div>
+                                </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-2-5">
+                        <div class="cmplctn">
+                            <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/Asset-3.png'?>">
+                            <ul class="radio_for_list">
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="fr-rd-new2" class="co" name="complexion" value="2" <?php echo ($collection->getComplexion() == '2'  ? 'checked' : ''); ?>>
+                                        <label for="fr-rd-new2"> Fair </label>
+                                        <p>Known reference : Kangana ranaut</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-2-5">
+                        <div class="cmplctn">
+                            <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/Asset-4.png' ?>">
+                            <ul class="radio_for_list">
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="fr-rd-new3" class="co" name="complexion" value="3"  <?php echo ($collection->getComplexion() == '3'  ? 'checked' : ''); ?>>
+                                        <label for="fr-rd-new3" checked> Wheatish </label>
+                                        <p>Known reference : Sonal kapoor</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-2-5">
+                        <div class="cmplctn">
+                            <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/Asset-5.png' ?>">
+                            <ul class="radio_for_list">
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="fr-rd-new4" class="co" name="complexion" value="4" <?php echo ($collection->getComplexion() == '4'  ? 'checked' : ''); ?>>
+                                        <label for="fr-rd-new4"> Dusky </label>
+                                        <p>Known reference : Priyanka chopra</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-2-5">
+                        <div class="cmplctn">
+                            <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/Asset-6.png' ?>">
+                            <ul class="radio_for_list">
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="fr-rd-new5" class="co" name="complexion" value="5" <?php echo ($collection->getComplexion() == '5'  ? 'checked' : ''); ?>>
+                                        <label for="fr-rd-new5"> Very dusky </label>
+                                        <p>Known reference : Kareena Kapoor</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+                <div class="shape">
+                    <h4 class="title_diff">Face shape</h4>
+                    <label class="error fshape"></label>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="cmpltshp">
+                            <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/s1.png' ?>">
+                            <ul class="radio_for_list">
+                                <li>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="fr-rd-new6"  class="fs" name="faceshape" value="1" checked>
+                                        <label for="fr-rd-new6"> Oval </label>
+
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cmpltshp">
+                                <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/s2.png'?>">
+                                <ul class="radio_for_list">
+                                    <li>
+                                        <div class="radio radio-inline">
+                                            <input type="radio" id="fr-rd-new7" class="fs" name="faceshape" value="2" <?php echo ($collection->getFaceshape() == '2'  ? 'checked' : ''); ?>>
+                                            <label for="fr-rd-new7"> Square </label>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cmpltshp">
+                                <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/s3.png' ?>">
+                                <ul class="radio_for_list">
+                                    <li>
+                                        <div class="radio radio-inline">
+                                            <input type="radio" id="fr-rd-new8"  class="fs" name="faceshape" value="3" <?php echo ($collection->getFaceshape() == '3'  ? 'checked' : ''); ?>>
+                                            <label for="fr-rd-new8"> Diamond </label>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cmpltshp">
+                                <img src="<?php echo Mage::getBaseUrl().'/media/beautyprofile/s4.png'?>">
+                                <ul class="radio_for_list">
+                                    <li>
+                                        <div class="radio radio-inline">
+                                            <input type="radio" id="fr-rd-new9" class="fs" name="faceshape" value="4" <?php echo ($collection->getFaceshape() == '4'  ? 'checked' : ''); ?>>
+                                            <label for="fr-rd-new9"> Round </label>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12 frm-action frrm">
+                    <button class="btn btn-primary backtBtn" type="button">Back</button>
+                    <button class="btn btn-primary nextBtn" id="step2" type="button">CONTINUE</button>
+                </div>
+                </div>
+
+            </div>
+        </div>

@@ -1,0 +1,81 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $collection = $this->getCollection();  ?>
+
+    <div class="page-title">
+        <h1><?php echo $this->__('My Profiles') ?></h1>
+    </div>
+    <input type="hidden" id="base_url" value="<?php echo Mage::getUrl(); ?>" />
+    <div id="is_default_msg" class="msg_hidden">Your default profile has beed selected.</div>
+<?php echo $this->getToolbarHtml(); ?>
+    <table class="data-table" id="my-custom-table">
+        <thead>
+        <tr>
+            <th><?php echo $this->__('Full Name') ?></th>
+            <th><span class="nobr"><?php echo $this->__('Dob') ?></span></th>
+            <th><?php echo $this->__('Email') ?></th>
+            <th><?php echo $this->__('Picture') ?></th>
+            <th><?php echo $this->__('Edit') ?></th>
+            <th><?php echo $this->__('Delete') ?></th>
+            <th><?php echo $this->__('Default profile') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach($collection as $item):
+                if(!empty($item->getProfilePicUrl())){
+                   $imgUrl = Mage::getBaseUrl().'media/beautyprofile/profile/'.$item->getProfilePicUrl();
+                }
+                else
+                {
+                    $imgUrl = Mage::getBaseUrl().'media/beautyprofile/profile/noimage.jpg';
+                }
+        ?>
+            <tr>
+                <td><span class="nobr"><?php echo $item->getFullName(); ?></span></td>
+                <td><?php echo $this->formatDate($item->getDob()); ?></td>
+                <td><?php echo $item->getEmail(); ?></td>
+                <td><img src="<?php echo $imgUrl; ?>" width="100" height="100"></td>
+                <td><a href="<?php echo Mage::getBaseUrl().'beautyprofiler/index/?id='.$item->getProfileId(); ?>">Edit</a></td>
+                <td><a href="<?php echo Mage::getBaseUrl().'beautyprofiler/list/delete/?delete='.$item->getProfileId(); ?>" id="a_id">Delete</a></td>
+                <td><input type="radio" name="default" data-id="<?php echo $item->getProfileId(); ?>" value="1" <?php echo ($item->getIsDefault() == '1'  ? 'checked' : ''); ?> /> Is default?
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php echo $this->getToolbarHtml(); ?>
+
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('td a#a_id').click(function() {
+            return confirm("Are You sure that You want to delete this?");
+        });
+    });
+    // For is default
+    jQuery(function(){
+         jQuery('input[name=default]').click(function(){    
+            jQuery('#is_default_msg').removeClass('success-msg');
+            jQuery('#is_default_msg').addClass('msg_hidden');
+            var id = jQuery(this).data('id');
+            var val = jQuery(this).val();
+            var url = jQuery('#base_url').val()+'beautyprofiler/list/selectdefault';
+            console.log(id);
+            console.log(val);
+            jQuery.ajax({
+                url: url,
+                type: "POST",
+                dataType: "text",
+                data:{id:id,val:val},
+                success: function(data){
+                    //console.log(response);
+                   if(data == 'Data updated successfully.'){ // if true (1)
+                        jQuery('#is_default_msg').removeClass('msg_hidden');
+                        jQuery('#is_default_msg').addClass('success-msg');
+                         //  location.reload(); // then reload the page.(3)
+                   }
+                }
+    });
+            
+       });
+    });
+</script>

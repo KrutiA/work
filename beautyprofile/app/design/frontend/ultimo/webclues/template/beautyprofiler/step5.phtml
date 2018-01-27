@@ -1,0 +1,78 @@
+ <?php $collection = $this->getCollection()->getFirstItem(); 
+//echo $collection->getFullName();
+ ?>
+<div class="panel panel-primary setup-content" id="step-5">
+    <h3 class="panel-title">Profile summary</h3>
+    <div class="panel-body">
+        <div class="bdr-div order_pre" id="skin_goals">
+           
+        </div>
+        <div class="sumuury">
+            <h4 class="title_diff">Summary of your current concerns</h4>
+            <p class="roman_change_font">Please prioritise your concern under each category to help us recommend the right solution</p>
+            <div class="row">
+                <div class="col-md-3" id="face_data">
+                  
+                </div>
+
+                <div class="col-md-3" id="eyes_data">
+                    
+                </div>
+                <div class="col-md-3" id="hands_and_feet">
+                    
+                </div>
+                <div class="col-md-3" id="hair_data">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn_group">
+        <?php   $id = $this->getRequest()->getParam('id');
+        
+                if($id != null){ 
+                     $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/'.$id.'.pdf';
+
+                }else{
+                    $primaryKey = 'profile_id';
+                    $tableName = 'beauty_profiler';
+                    $db = Mage::getModel('core/resource')->getConnection('core_read');
+                    $result = $db->raw_fetchRow("SELECT MAX(`{$primaryKey}`) as LastID FROM `{$tableName}`");
+                    $profile_id = $result['LastID'] + 1;
+                    $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/'.$profile_id.'.pdf';
+                }
+
+                
+//print_r($file_path); 
+               /*if(!file_exists($file_path)){
+                    $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/profile_not_found.pdf';
+               } */
+               /*if($id == null){
+                    $primaryKey = 'profile_id';
+                    $tableName = 'beauty_profiler';
+                    $db = Mage::getModel('core/resource')->getConnection('core_read');
+                    $result = $db->raw_fetchRow("SELECT MAX(`{$primaryKey}`) as LastID FROM `{$tableName}`");
+                    $cid = $result['LastID'] + 1;
+               }else{
+                  $cid = $id;
+               }
+               $file_path = Mage::getBaseDir().'media/beautyprofile/summary_pdf/'.$cid.'.pdf';
+               if(file_exists($file_path)){
+                $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/'.$cid.'.pdf';
+               }else{
+                    $file_path_1 = Mage::getBaseUrl().'media/beautyprofile/summary_pdf/profile_not_found.pdf';
+               }*/
+               
+        ?>
+        <a href="<?php echo $file_path_1;?>" target="_blank"><button class="btn btn-primary vcs_btn" id="view_sum" type="button"> VIEW COMPLETE SUMMARY</button></a>
+
+        
+
+        <button class="btn btn-primary esy_btn" type="button" onclick="sendbeeutyprofilesummary()"> EMAIL SUMMARY TO YOURSELF</button>
+            <button class="btn btn-primary nextBtn" type="submit">SUBMIT</button>
+        </div>
+        <div class="mail-success" style="display: none;color: green;">Thank you. Your beautyprofiler summary has been send.</div>
+        <div class="mail-error" style="display: none;color: #ee001c;">There was some error sending mail. Please try again later.</div>
+    </div>
+</div>
+
